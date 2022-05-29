@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" >
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
+
+    <title>CLOCK</title>
+  </head>
+  
+  <style>
+    body{
+      background: rgb(37, 33, 57);
+    }
+    .container h2{
+      margin-top: 5%;
+      font-family:Montserrat,Arial,Helvetica,sans-serif; 
+      font-weight: 700;
+      font-size: 2.5em;
+      color: #fff;
+    }
+    #time{
+      display: flex;
+    }
+    #time div{
+      margin: auto;
+      margin-top: 3%;
+      -webkit-box-reflect: below 2px linear-gradient(transparent, #0004);
+    }
+    #time div span{
+      display: block;
+      width: 200px;
+      height: 100px;
+      background-color: rgb(56, 230, 192);
+      font-size: 5em;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 0 0 1px rgba(0,0,0, .2);
+    }
+    #time div span:nth-child(2){
+      height: 45px;
+      font-size: 1em;
+      letter-spacing: 0.1em;
+      text-align: center;
+      box-shadow: none;
+      background:rgb(56, 207, 190) ;
+    }
+    #calender{
+      position: absolute;
+      bottom: 10px;
+      display: flex;
+      height: 20%;
+      width: 82%;
+      margin-bottom: 2%;
+      color: rgb(233, 237, 240);
+      font-weight: 400;
+      font-size: 3em;
+      letter-spacing: 0.04em;
+      justify-content:end;
+    }
+  </style>
+  <body>
+
+      <div class="container">
+        <div id="heading">
+          <h2>Current Time in Kolkata, India :</h2>
+        </div>
+        <div id="time">
+          <div><span id="hrs">00</span><span>HOURS</span></div>
+          <div><span id="min">00</span><span>MINUTES</span></div>
+          <div><span id="sec">00</span><span>SECONDS</span></div>
+        </div>
+        <div id="calender">
+          <div id="day"><span>Sunday,</span></div>
+          <div id="date"><span>02</span></div>
+          <div id="month"><span>May</span></div>
+          <div id="year"><span>2022</span></div>
+        </div>
+      </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+
+    <script>
+        setInterval(() => {
+            var a = new Date();
+            document.getElementById('hrs').innerHTML = String(a.getHours()).padStart(2, '0');
+            document.getElementById('min').innerHTML = String(a.getMinutes()).padStart(2, '0');
+            document.getElementById('sec').innerHTML = String(a.getSeconds()).padStart(2, '0');
+            
+            var DAY = a.getDay();
+            if(day == 0)
+	            document.getElementById("day").innerHTML = "Sunday";
+            else if(day == 1)
+	            document.getElementById("day").innerHTML = "Monday";
+            else if(day == 2)
+	            document.getElementById("day").innerHTML = "Tueday";
+            else if(day == 3)
+	            document.getElementById("day").innerHTML = "Wednesday";
+            else if(day == 4)
+	            document.getElementById("demo").innerHTML = "Thursday";
+            else if(day == 5)
+	            document.getElementById("demo").innerHTML = "Friday";
+            else if(day == 6)
+	            document.getElementById("demo").innerHTML = "Saturday";
+
+            document.getElementById('date').innerHTML= a.getDate();
+
+            var MONTH = a.getMonth();
+            if(MONTH == 0)
+              document.getElementById('month').innerHTML = " January, ";
+            else if(MONTH == 1)
+              document.getElementById('month').innerHTML = " February, ";
+            else if(MONTH == 2)
+              document.getElementById('month').innerHTML = " March, ";
+            else if(MONTH == 3)
+              document.getElementById('month').innerHTML = " April, ";
+            else if(MONTH == 4)
+              document.getElementById('month').innerHTML = " May, ";
+            else if(MONTH == 5)
+              document.getElementById('month').innerHTML = " June, ";
+            else if(MONTH == 6)
+              document.getElementById('month').innerHTML = " July, ";
+            else if(MONTH == 7)
+              document.getElementById('month').innerHTML = " August, ";
+            else if(MONTH == 8)
+              document.getElementById('month').innerHTML = " September, ";
+            else if(MONTH == 9)
+              document.getElementById('month').innerHTML = " October, ";
+            else if(MONTH == 10)
+              document.getElementById('month').innerHTML = " November, ";
+            else if(MONTH == 11)
+              document.getElementById('month').innerHTML = " December, ";
+          
+            document.getElementById('year').innerHTML= a.getFullYear();
+        }, 1000);
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
